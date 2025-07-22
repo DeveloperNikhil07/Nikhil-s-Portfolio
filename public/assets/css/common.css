@@ -1,0 +1,122 @@
+.subtitle {
+    font-size: clamp(16px, 1.5vw, 22px);
+    font-weight: 500;
+    color: var(--theme-color);
+    line-height: normal;
+    display: inline-block;
+}
+
+.section-title h2,
+.section-title h3 {
+    font-size: clamp(30px, 2.5vw, 40px);
+    font-weight: 700;
+    line-height: normal;
+    color: var(--secondary-text-color);
+}
+
+.section-title h3 {
+    font-size: clamp(28px, 2.2vw, 36px);
+}
+
+.section-title p {
+    font-size: clamp(16px, 1.5vw, 20px);
+    font-weight: 400;
+    color: var(--secondary-text-color);
+    line-height: normal;
+}
+
+.section-title span {
+    font-size: clamp(16px, 1.5vw, 20px);
+    font-weight: 500;
+    color: transparent;
+    letter-spacing: 1.8px;
+    -webkit-text-stroke: 1px var(--primary-color);
+
+}
+
+.section-title .cm-button {
+    color: var(--secondary-text-color);
+}
+
+.cm-button {
+    position: relative;
+    overflow: hidden;
+    width: auto;
+    height: auto;
+    padding: 10px 30px;
+    border-radius: 4px;
+    display: inline-block;
+    border: 2px solid var(--primary-color);
+    color: var(--secondary-text-color);
+    font-weight: 500;
+    font-size: clamp(16px, 1.5vw, 18px);
+    transition: var(--transition);
+    z-index: 1;
+}
+
+.cm-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -75%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(120deg, var(--primary-color), rgba(255, 255, 255, 0));
+    transform: skewX(-25deg);
+    transition: all 0.4s ease-in-out;
+    z-index: 2;
+}
+
+.cm-button:hover::before {
+    left: 125%;
+}
+
+.cm-button:hover {
+    background-color: var(--theme-color);
+    color: var(--white-color) !important;
+}
+
+
+.pt {
+    padding-top: clamp(50px, 4.5vw, 70px);
+}
+
+.pb {
+    padding-bottom: clamp(50px, 4.5vw, 70px);
+}
+
+.py {
+    padding: clamp(50px, 4.5vw, 70px) 0px;
+}
+
+.mt {
+    margin-top: clamp(50px, 4.5vw, 70px);
+}
+
+.mb {
+    margin-bottom: clamp(50px, 4.5vw, 70px);
+}
+
+.section-bg-gray {
+    background-color: #f0f0f0;
+}
+
+.btn {
+    padding: 0.8rem 1.3rem;
+    background-color: var(--theme-color);
+    border: 1px solid var(--theme-color);
+    font-size: 1rem;
+    color: var(--white-color);
+    line-height: 1;
+    border-radius: 5px;
+    outline: none;
+    cursor: pointer;
+    transition: 0.3s;
+    margin: 0;
+    width: 100%;
+}
+
+.btn:hover {
+    background-color: var(--light-black-color);
+    color: #fff;
+}

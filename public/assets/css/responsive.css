@@ -1,0 +1,150 @@
+@media screen and (max-width:991px) {
+    .banner-wrapper .banner-video video {
+        height: 65vh;
+        min-height: 65vh;
+        max-height: 65vh;
+    }
+
+    /* Class add on navbar for show menus */
+    header .header-wrapper {
+        padding-left: 12px;
+        padding-right: 12px;
+    }
+
+    nav.navbar.show-menu .menu {
+        right: 0px;
+    }
+
+    nav.navbar.show-menu ul.menu .offcanvas-overlay {
+        left: 0px;
+    }
+
+    /* end */
+    button.toggle-button svg,
+    button.toggle-button {
+        display: block;
+    }
+
+    nav.navbar .menu {
+        position: fixed;
+        top: 0px;
+        right: -100%;
+        background: #000;
+        padding: 20px;
+        height: 100vh;
+        width: calc(100% - 40%);
+        transition: var(--transition);
+        z-index: 11;
+    }
+
+    nav.navbar ul.menu {
+        flex-direction: column;
+        align-items: start;
+        justify-content: start;
+        gap: 30px
+    }
+
+    nav.navbar ul.menu .offcanvas-overlay {
+        position: fixed;
+        height: 100vh;
+        left: -100%;
+        top: 0px;
+        width: 100%;
+        background: rgba(0, 0, 0, 0.7);
+        z-index: -11;
+        transition: var(--transition);
+    }
+
+    /* Contact us page css */
+    .form {
+        grid-template-columns: 1fr;
+    }
+
+    .contact-info:before {
+        bottom: initial;
+        top: -75px;
+        right: 65px;
+        transform: scale(0.95);
+    }
+
+    .contact-form:before {
+        top: -13px;
+        left: 40px;
+        right: auto;
+    }
+
+    .square {
+        transform: translate(140%, 43%);
+        height: 350px;
+    }
+
+    .big-circle {
+        bottom: 75%;
+        transform: scale(0.9) translate(-40%, 30%);
+        right: 50%;
+    }
+
+    .text {
+        margin: 1rem 0 1.5rem 0;
+    }
+
+    .social-media {
+        padding: 1.5rem 0 0 0;
+    }
+}
+
+@media screen and (max-width:767px) {
+    nav.navbar.show-menu .menu {
+        width: 100%;
+    }
+
+    .banner-wrapper .banner-video video {
+        height: 65vh;
+        min-height: 65vh;
+        max-height: 65vh;
+    }
+}
+
+@media (max-width: 480px) {
+    .contact-info:before {
+        display: none;
+    }
+
+    .square,
+    .big-circle {
+        display: none;
+    }
+
+    form,
+    .contact-info {
+        padding: 1.7rem 1.6rem;
+    }
+
+    .text,
+    .information,
+    .social-media p {
+        font-size: 0.8rem;
+    }
+
+    .title {
+        font-size: 1.15rem;
+    }
+
+    .social-icons a {
+        width: 30px;
+        height: 30px;
+        line-height: 30px;
+    }
+
+    .icon {
+        width: 23px;
+    }
+
+    .input {
+        padding: 0.45rem 1.2rem;
+    }
+
+    .btn {
+        padding: 0.45rem 1.2rem;
+    }
+}

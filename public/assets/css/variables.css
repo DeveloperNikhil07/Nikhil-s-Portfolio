@@ -1,0 +1,16 @@
+:root {
+    --theme-color: #101722;
+    --secondary-themecolor: #3F30FF;
+    --primary-color: #28d2ff;
+    --secondary-color: #555;
+    --black-color: #000;
+    --danger-color:red;
+    --white-color: #fff;
+    --theme-dark-bg-color: #1E1E1E;
+    --border-color: #2e3540;
+    --secondary-text-color: #c0c0c0;
+    --light-black-color: #121212;
+    --online-color: #05ac05;
+    --offline-color: #FF0000;
+    --transition: 0.3s ease;
+}
