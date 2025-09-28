@@ -1,9 +1,20 @@
 /* NextLogo.module.css */
-.wrapper {
-  display: inline-flex;
+.mainwrapper {
+  --bg: #1a1a1a;
+  position: fixed;
+  left: 0;
+  top: 0;
+  height: 100vh;
+  width: 100vw;
+  background-color: rgba(255, 255, 255, 0.06);
+  display: flex;
   align-items: center;
   justify-content: center;
-  --bg: #1a1a1a;
+}
+
+.mainwrapper .wrapper {
+  width: 236px;
+  height: 236px;
 }
 
 .logo {
@@ -40,6 +51,7 @@
 .left {
   animation-delay: 100ms;
 }
+
 .right {
   animation-delay: 350ms;
 }
@@ -51,11 +63,13 @@
   0% {
     fill: transparent;
   }
+
   40% {
-    fill: rgba(255,255,255,0.03);
+    fill: rgba(255, 255, 255, 0.03);
   }
+
   100% {
-    fill: rgba(255,255,255,0.06);
+    fill: rgba(255, 255, 255, 0.06);
   }
 }
 
@@ -68,6 +82,7 @@
     transform: rotate(-20deg) scale(0.98);
     opacity: 0.6;
   }
+
   25% {
     stroke-width: 16;
     stroke-dasharray: 120 0;
@@ -75,6 +90,7 @@
     transform: rotate(0deg) scale(1);
     opacity: 1;
   }
+
   50% {
     stroke-width: 12;
     stroke-dasharray: 240 0;
@@ -82,6 +98,7 @@
     transform: rotate(30deg) scale(1.02);
     opacity: 1;
   }
+
   75% {
     stroke-width: 6;
     stroke-dasharray: 60 200;
@@ -89,6 +106,7 @@
     transform: rotate(80deg) scale(1.01);
     opacity: 0.9;
   }
+
   100% {
     stroke-width: 0.3;
     stroke-dasharray: 480 0;
@@ -105,21 +123,25 @@
     transform: translateY(6px) scale(0.98);
     opacity: 0;
   }
+
   25% {
     fill: #f4f4f4;
     transform: translateY(2px) scale(1.02);
     opacity: 1;
   }
+
   55% {
     fill: transparent;
     transform: translateY(0) scale(1);
     opacity: 0.6;
   }
+
   85% {
     fill: #d4d4d4;
     transform: translateY(-1px) scale(1.01);
     opacity: 1;
   }
+
   100% {
     fill: #ffffff;
     transform: translateY(0) scale(1);
@@ -129,11 +151,37 @@
 
 /* reduce motion support */
 @media (prefers-reduced-motion: reduce) {
-  .bgCircle, .ring, .path {
+
+  .bgCircle,
+  .ring,
+  .path {
     animation: none;
     transition: none;
   }
-  .bgCircle { fill: rgba(255,255,255,0.03); }
-  .path { fill: #fff; }
-  .ring { stroke-width: 0.3; stroke-dasharray: none; }
+
+  .bgCircle {
+    fill: rgba(255, 255, 255, 0.03);
+  }
+
+  .path {
+    fill: #fff;
+  }
+
+  .ring {
+    stroke-width: 0.3;
+    stroke-dasharray: none;
+  }
+}
+
+/* Mobile ke liye */
+@media (max-width: 768px) {
+  .mainwrapper .wrapper {
+    width: 120px !important;
+    height: 120px !important;
+  }
+
+  .mainwrapper .wrapper svg {
+    width: 100px;
+    height: 100px;
+  }
 }

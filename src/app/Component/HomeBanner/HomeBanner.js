@@ -4,6 +4,7 @@ import React from 'react';
 import style from './homebanner.module.css';
 import { useWebsiteContent } from '@/app/context/WbContent';
 import ViewNextSectionButton from '../SectionCommonButton/ViewNextSectionButton';
+import WindowLoader from '../WindowLoader/WindowLoader';
 
 export default function HomeBanner({ ViewNextLayout }) {
     const { websiteData, loading } = useWebsiteContent();
@@ -23,12 +24,12 @@ export default function HomeBanner({ ViewNextLayout }) {
 
     return (
         <section className={style.herowrapper}>
-            <div className={style.heroimage}>
-                <div className={style.herocontent}>
-                    <div className="container position-relative">
-                        {loading ? (
-                            <div className="row align-items-center">""</div>
-                        ) : (
+            {loading ? (
+                <div className="row align-items-center"><WindowLoader /></div>
+            ) : (
+                <div className={style.heroimage}>
+                    <div className={style.herocontent}>
+                        <div className="container position-relative">
                             <div className="row align-items-center">
                                 {/* Left Column */}
                                 <div className="col-12 text-center text-md-start col-md-6">
@@ -62,16 +63,16 @@ export default function HomeBanner({ ViewNextLayout }) {
                                     </div>
                                 </div>
                             </div>
-                        )}
+                        </div>
                     </div>
-                </div>
 
-                <ViewNextSectionButton
-                    ViewNextLayout={ViewNextLayout}
-                    PageTitle={"HomeLayout"}
-                    ButtonText={"Start Slide"}
-                />
-            </div>
+                    <ViewNextSectionButton
+                        ViewNextLayout={ViewNextLayout}
+                        PageTitle={"HomeLayout"}
+                        ButtonText={"Start Slide"}
+                    />
+                </div>
+            )}
         </section>
     );
 }
