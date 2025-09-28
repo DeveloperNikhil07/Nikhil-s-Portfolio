@@ -7,7 +7,7 @@ export default function HeaderNavSkelton() {
             <div className='logo'><SkeltonStructure height='30px' width='100px' /></div>
             <div className='d-none d-lg-block'>
                 <div className='d-flex align-items-center' style={{ gap: '45px' }}>
-                    {Array.from({ length: 5 }).map((_, idx) => (
+                    {Array.from({ length: 4 }).map((_, idx) => (
                         <SkeltonStructure key={idx} height="30px" width="100px" />
                     ))}
                 </div>

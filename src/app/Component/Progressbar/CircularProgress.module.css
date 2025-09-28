@@ -1,0 +1,60 @@
+.Progresscontainer {
+    position: relative;
+    width: calc(100% - 100px);
+    height: 14px;
+    background: #e4e8f1;
+    /* background line */
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.progressBar {
+    height: 100%;
+    border-radius: 8px;
+    transition: width 1.5s ease-out;
+}
+
+.skillText {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    font-weight: 600;
+    font-size: clamp(11px, 1.5vw, 14px);
+    color: #333;
+}
+
+.circularProgress {
+    display: flex;
+    align-items: center;
+    margin: 8px 0;
+    justify-content: space-between;
+}
+
+.skillsContent {
+    padding-top: 6px;
+    font-size: clamp(14px, 2vw, 20px);
+    color: #fff;
+    font-weight: 600;
+}
+
+@media screen and (max-width: 767px) {
+    .circularProgress {
+        margin-bottom: 6px;
+        margin-top: 0;
+    }
+
+    .Progresscontainer {
+        height: 12px;
+    }
+}
+
+@media screen and (max-width: 539px) {
+    .circularProgress:last-child {
+        margin-bottom: 0;
+        display: none;
+    }
+    .Progresscontainer{
+        width: calc(100% - 70px);
+    }
+}

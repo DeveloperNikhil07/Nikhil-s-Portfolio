@@ -15,9 +15,9 @@ export const WebsiteContentProvider = ({ children }) => {
         const fetchWebsiteData = async () => {
             try {
                 const response = await GetWebsiteData();
-                if(response){
+                if (response) {
                     setWebsiteData(response);
-                }else{
+                } else {
                     setWebsiteData({});
                 }
             } catch (error) {

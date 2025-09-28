@@ -13,7 +13,7 @@ export default function HomeBannerSkelton() {
       </div>
       <div className='col-12 col-md-6'>
         <div className=''>
-          <SkeltonStructure height='453px' width='100%' />
+          <SkeltonStructure height='382px' width='100%' />
         </div>
       </div>
     </>

@@ -1,43 +1,77 @@
 'use client'
-import React from 'react'
-import style from './homebanner.module.css'
-import Link from 'next/link'
-import { useWebsiteContent } from '@/app/context/WbContent'
-import HomeBannerSkelton from './HomeBannerSkelton'
 
-export default function HomeBanner() {
+import React from 'react';
+import style from './homebanner.module.css';
+import { useWebsiteContent } from '@/app/context/WbContent';
+import ViewNextSectionButton from '../SectionCommonButton/ViewNextSectionButton';
+
+export default function HomeBanner({ ViewNextLayout }) {
     const { websiteData, loading } = useWebsiteContent();
     const GetHeroContent = websiteData?.homeBanner?.heroMainTitle || {};
 
-    // content replace
-    const formattedTitle = GetHeroContent?.subtitle?.replace(
+    // Highlight logic for subtitle
+    const formattedSubtitle = GetHeroContent?.subtitle?.replace(
         /#(.*?)#/g,
-        '<span class="highlight">$1</span>'
+        `<span class="${style.highlightmesg}">$1</span>`
+    );
+
+    // Greet logic with emoji image
+    const FormatHelloGreet = GetHeroContent?.greateTitle?.replace(
+        /#(.*?)#/g,
+        `<img class="${style.greetIcon}" src="/assets/gif/hello-gif.gif" alt="$1"/>`
     );
 
     return (
-        <section className={`${style?.herowrapper}`}>
-            <div className={`${style?.heroimage}`}>
-                {/* If You want to image then add here */}
-                <div className={`${style?.herocontent}`}>
-                    <div className={`container`}>
-                        <div className={`row align-items-center`}>
-                            {loading ? <><HomeBannerSkelton /></> : <>
-                                <div className={`col-12 text-center text-lg-start col-lg-6`}>
-                                    <div className={`${style.sectiontitle} section-title`}>
-                                        <h1 className={`${style?.maincontent} mb-3 mb-lg-4`}>{GetHeroContent?.title || ""}</h1>
-                                        <p dangerouslySetInnerHTML={{ __html: formattedTitle }}></p>
-                                    </div>
-                                    <Link href="" download={``} className={`mt-4 mt-lg-5 cm-button`}>{GetHeroContent?.buttonText || ""}</Link>
-                                </div>
-                                <div className={`col-12 col-md-6`}>
+        <section className={style.herowrapper}>
+            <div className={style.heroimage}>
+                <div className={style.herocontent}>
+                    <div className="container position-relative">
+                        {loading ? (
+                            <div className="row align-items-center">""</div>
+                        ) : (
+                            <div className="row align-items-center">
+                                {/* Left Column */}
+                                <div className="col-12 text-center text-md-start col-md-6">
+                                    <div className={`${style.Hometextwrapper} section-title`}>
+                                        <p
+                                            className={style.greetMesg}
+                                            dangerouslySetInnerHTML={{ __html: FormatHelloGreet || "👋" }}
+                                        ></p>
 
+                                        <h1 className={`${style.maincontent} mb-3 mb-lg-4`}>
+                                            {GetHeroContent?.firstName} {GetHeroContent?.middleName}{' '}
+                                            <span>{GetHeroContent?.lastName},</span>
+                                        </h1>
+
+                                        <p
+                                            dangerouslySetInnerHTML={{ __html: formattedSubtitle }}
+                                        ></p>
+                                    </div>
                                 </div>
-                            </>}
-                        </div>
+
+                                {/* Right Column */}
+                                <div className="col-12 col-md-6 text-center text-md-end">
+                                    <div className={style.ImageWrapper}>
+                                        <div className={style.ImageInner}>
+                                            <img
+                                                src="/assets/images/nikhils-img.jpeg"
+                                                className="img-fluid"
+                                                alt="Nikhil Lodhi"
+                                            />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        )}
                     </div>
                 </div>
+
+                <ViewNextSectionButton
+                    ViewNextLayout={ViewNextLayout}
+                    PageTitle={"HomeLayout"}
+                    ButtonText={"Start Slide"}
+                />
             </div>
         </section>
-    )
+    );
 }

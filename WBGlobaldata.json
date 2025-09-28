@@ -14,10 +14,6 @@
         "url": "/aboutus"
       },
       {
-        "title": "Our Services",
-        "url": "/ourservices"
-      },
-      {
         "title": "Our Projects",
         "url": "/ourprojects"
       },
@@ -29,10 +25,20 @@
   },
   "homeBanner": {
     "heroMainTitle": {
-      "title": "FRONTEND DEVELOPER",
-      "subtitle": "I am Nikhil Lodhi – a passionate #FRONTEND DEVELOPER# who specializes in building beautiful, responsive, and user-friendly websites. I focus on delivering clean code, modern designs, and seamless user experiences.",
-      "buttonText": "Download CV"
+      "greateTitle": "Hello #👋# I'm",
+      "firstName": "Nikhil",
+      "middleName": "",
+      "lastName": "Lodhi",
+      "subtitle": "I'm a #Frontend Developer# specializing in building responsive and modern web applications using React, Next.js, and CSS frameworks. I focus on delivering clean, efficient code and seamless user experiences.",
+      "buttonText": "About Me"
     }
+  },
+  "aboutUs": {
+    "title": "About Me",
+    "subtitle": "Transforming ideas into beautiful, responsive, and user-friendly web applications using React and Next.js.",
+    "description": "I specialize in building modern websites with clean code, performance optimization, and seamless user experiences. In my journey, I have worked on WordPress customizations, PHP projects, and now focus on React & Next.js development in CRM applications.",
+    "mission": "To create websites that combine functionality, aesthetics, and performance.",
+    "cta": "Let's collaborate and bring your ideas to life!"
   },
   "contact": {
     "email": "info@mywebsite.com",

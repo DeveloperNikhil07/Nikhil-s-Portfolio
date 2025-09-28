@@ -1,0 +1,104 @@
+.ViewNextSection {
+    border: 5px solid;
+    border-image: linear-gradient(90deg, #49aac7, #6991c700) 1;
+    height: auto;
+    width: auto;
+    background-color: transparent;
+    padding: 12px 30px;
+    position: fixed;
+    right: 30px;
+    transition: all 0.3s ease;
+    /* animation: bounce 2s infinite; */
+    bottom: 30px;
+    font-size: clamp(14px, 1.5vw, 18px);
+}
+
+.ViewNextSection:hover {
+    border-image: linear-gradient(90deg, #6991c7, #49aac700) 1;
+}
+
+.ViewNextSection svg {
+    transition: all 0.3s ease;
+}
+
+.ViewNextSection:hover svg {
+    transform: translateX(5px);
+}
+
+@keyframes bounce {
+
+    0%,
+    20%,
+    50%,
+    80%,
+    100% {
+        transform: translateY(0);
+    }
+
+    40% {
+        transform: translateY(-10px);
+    }
+
+    60% {
+        transform: translateY(-5px);
+    }
+}
+
+/* Previous Button */
+.ViewPreviousSection {
+    border: 5px solid;
+    border-image: linear-gradient(270deg, #49aac7, #6991c700) 1;
+    height: auto;
+    width: auto;
+    background-color: transparent;
+    padding: 12px 30px;
+    position: fixed;
+    left: 30px;
+    transition: all 0.3s ease;
+    bottom: 30px;
+    font-size: clamp(14px, 1.5vw, 18px);
+}
+
+.ViewPreviousSection:hover {
+    border-image: linear-gradient(270deg, #6991c7, #49aac700) 1;
+}
+
+.ViewPreviousSection svg {
+    transition: all 0.3s ease;
+}
+
+.ViewPreviousSection:hover svg {
+    transform: translateX(-5px);
+}
+
+/* media query */
+
+@media screen and (max-width: 767px) {
+
+    .ViewNextSection,
+    .ViewPreviousSection {
+        padding: 7px 9px;
+        right: 15px;
+        bottom: 15px;
+        border-width: 2px;
+    }
+
+    .ViewPreviousSection {
+        left: 15px;
+        right: auto;
+    }
+}
+
+@media screen and (max-width: 400px) {
+
+    .ViewNextSection,
+    .ViewPreviousSection {
+        bottom: 5px;
+        right: 5px;
+    }
+
+    .ViewPreviousSection {
+        left: 5px;
+        right: auto;
+    }
+}

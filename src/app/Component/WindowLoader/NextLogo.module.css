@@ -1,0 +1,139 @@
+/* NextLogo.module.css */
+.wrapper {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  --bg: #1a1a1a;
+}
+
+.logo {
+  display: block;
+}
+
+/* background circle (solid fill anim) */
+.bgCircle {
+  fill: transparent;
+  transition: fill 400ms ease;
+  animation: bgFill 2200ms ease-in-out infinite alternate;
+}
+
+/* outer ring stroke animation */
+.ring {
+  fill: transparent;
+  stroke: #ffffff;
+  stroke-opacity: 0.9;
+  stroke-width: 0.3;
+  stroke-dasharray: 0 500;
+  stroke-dashoffset: 0;
+  animation: ringDraw 2600ms ease-in-out infinite;
+  transform-origin: 50% 50%;
+}
+
+/* logo paths */
+.path {
+  fill: transparent;
+  animation: pathFill 2200ms ease-in-out infinite;
+  transform-origin: center;
+}
+
+/* split subtle delays for right/left to make effect nicer */
+.left {
+  animation-delay: 100ms;
+}
+.right {
+  animation-delay: 350ms;
+}
+
+/* KEYFRAMES */
+
+/* small pulsing fill for the big circle behind logo */
+@keyframes bgFill {
+  0% {
+    fill: transparent;
+  }
+  40% {
+    fill: rgba(255,255,255,0.03);
+  }
+  100% {
+    fill: rgba(255,255,255,0.06);
+  }
+}
+
+/* ring drawing like Next's refresh effect */
+@keyframes ringDraw {
+  0% {
+    stroke-width: 0;
+    stroke-dasharray: 0 500;
+    stroke-dashoffset: 0;
+    transform: rotate(-20deg) scale(0.98);
+    opacity: 0.6;
+  }
+  25% {
+    stroke-width: 16;
+    stroke-dasharray: 120 0;
+    stroke-dashoffset: 0;
+    transform: rotate(0deg) scale(1);
+    opacity: 1;
+  }
+  50% {
+    stroke-width: 12;
+    stroke-dasharray: 240 0;
+    stroke-dashoffset: -120;
+    transform: rotate(30deg) scale(1.02);
+    opacity: 1;
+  }
+  75% {
+    stroke-width: 6;
+    stroke-dasharray: 60 200;
+    stroke-dashoffset: -240;
+    transform: rotate(80deg) scale(1.01);
+    opacity: 0.9;
+  }
+  100% {
+    stroke-width: 0.3;
+    stroke-dasharray: 480 0;
+    stroke-dashoffset: -480;
+    transform: rotate(140deg) scale(0.99);
+    opacity: 0.6;
+  }
+}
+
+/* path fill animation to appear/disappear like Next's logo */
+@keyframes pathFill {
+  0% {
+    fill: transparent;
+    transform: translateY(6px) scale(0.98);
+    opacity: 0;
+  }
+  25% {
+    fill: #f4f4f4;
+    transform: translateY(2px) scale(1.02);
+    opacity: 1;
+  }
+  55% {
+    fill: transparent;
+    transform: translateY(0) scale(1);
+    opacity: 0.6;
+  }
+  85% {
+    fill: #d4d4d4;
+    transform: translateY(-1px) scale(1.01);
+    opacity: 1;
+  }
+  100% {
+    fill: #ffffff;
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+}
+
+/* reduce motion support */
+@media (prefers-reduced-motion: reduce) {
+  .bgCircle, .ring, .path {
+    animation: none;
+    transition: none;
+  }
+  .bgCircle { fill: rgba(255,255,255,0.03); }
+  .path { fill: #fff; }
+  .ring { stroke-width: 0.3; stroke-dasharray: none; }
+}

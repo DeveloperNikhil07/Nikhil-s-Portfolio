@@ -1,0 +1,7 @@
+.square {
+    border: 12px solid transparent;
+    position: absolute;
+    inset: 0;
+    border: 12px solid;
+    border-image: linear-gradient(270deg, #49aac7, #6991c700) 1;
+}

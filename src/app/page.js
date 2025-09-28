@@ -1,9 +1,10 @@
-import HomeBanner from "./Component/HomeBanner/HomeBanner";
+import React from 'react'
+import RenderAllPages from './Component/RenderAllPages'
 
-export default function Home() {
+export default function page() {
   return (
-    <>
-      <HomeBanner />
-    </>
-  );
+    <div>
+      <RenderAllPages/>
+    </div>
+  )
 }

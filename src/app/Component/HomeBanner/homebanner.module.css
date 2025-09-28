@@ -1,60 +1,188 @@
-.herowrapper {width: 100%;min-height: calc(100vh - 114px);max-height: calc(100vh - 114px)}
-.heroimage img {width: 100%;height: 100%}
-.herocontent {width: 100%;}
-
-.herocontent h1.maincontent {
-  font-size: clamp(32px, 5vw, 75px);
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  font-weight: 700;
-  display: inline-block;
-  position: relative;
-  background: 
-    linear-gradient(
-      120deg,
-      transparent 0%,
-      rgba(255, 255, 255, 0.5) 50%,
-      transparent 100%
-    )
-    no-repeat,
-    linear-gradient(
-      270deg,
-      var(--primary-color),
-      var(--secondary-themecolor),
-      var(--primary-color)
-    );
-  background-size: 200% 100%, 200% 100%;
-  background-position: -100% 0, 0 0;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  color: transparent;
-  -webkit-text-stroke: 1px rgba(255, 255, 255, 0.15);
-  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
-  animation: shineText 3s ease-in-out infinite, gradientMove 6s linear infinite;
-}
-
-/* Shine animation inside text */
-@keyframes shineText {
+/* 🔹 Swing Down Animation */
+@keyframes swingDown {
   0% {
-    background-position: -100% 0, 0 0;
+    transform: rotate(0deg);
   }
+
   60% {
-    background-position: 200% 0, 0 0;
+    transform: rotate(0deg);
   }
+
+  70% {
+    transform: rotate(-8deg);
+  }
+
+  75% {
+    transform: rotate(-7deg);
+  }
+
+  80% {
+    transform: rotate(-7.8deg);
+  }
+
+  85% {
+    transform: rotate(-7.2deg);
+  }
+
+  90% {
+    transform: rotate(-7.5deg);
+  }
+
+  95% {
+    transform: rotate(-7.4deg);
+  }
+
   100% {
-    background-position: 200% 0, 0 0;
+    transform: rotate(-7.5deg);
   }
 }
 
-/* Background gradient movement (optional) */
-@keyframes gradientMove {
+/* Hero Wrapper */
+.herowrapper {
+  width: 100%;
+  min-height: calc(100vh - 115px);
+  max-height: calc(100vh - 115px);
+  overflow: hidden;
+}
+
+.heroimage img {
+  width: 100%;
+  height: 100%;
+}
+
+.herocontent {
+  width: 100%;
+  position: absolute;
+  left: 0px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.Hometextwrapper .greetIcon {
+  width: 28px;
+  height: 28px;
+  vertical-align: text-top;
+}
+
+.Hometextwrapper p.greetMesg {
+  font-size: clamp(18px, 3vw, 24px);
+  color: #49aac7;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.highlightmesg {
+  font-size: clamp(18px, 3vw, 24px);
+  color: #49aac7;
+  font-weight: 500;
+}
+
+/* Title Animation (apply on Last Name) */
+.maincontent {
+  font-size: clamp(40px, 10vw, 90px);
+  font-weight: 800;
+  color: #fff;
+  line-height: 1.2;
+}
+
+.maincontent span {
+  display: inline-block;
+  transform-origin: bottom right;
+  animation: swingDown 0.75s ease forwards;
+  /* run on page load */
+}
+
+/* Hover: make it straight */
+.maincontent span:hover {
+  transform: rotate(0deg);
+  animation: none;
+  transition: transform 0.4s ease;
+}
+
+/* Right column css */
+.ImageWrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.ImageInner {
+  position: relative;
+  width: 450px;
+  height: 450px;
+  border-radius: 50%;
+  overflow: hidden;
+  z-index: 2;
+  animation: zoomEffect 4s ease-in-out infinite;
+  /* zoom in-out animation */
+}
+
+.ImageWrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 50%;
+}
+
+/* Gradient Border with Shadow */
+.ImageWrapper::before {
+  content: "";
+  position: absolute;
+  top: -3px;
+  left: -3px;
+  width: calc(100% + 6px);
+  height: calc(100% + 6px);
+  border-radius: 50%;
+  background: linear-gradient(80deg, #49aac7, #6991c700);
+  z-index: 1;
+  animation: spin 5s linear infinite;
+  /* slow rotation */
+  box-shadow: 0 0 20px rgba(73, 170, 199, 0.5);
+  /* halka shadow */
+}
+
+@keyframes spin {
   0% {
-    background-position: 0% 0, 0 0;
+    transform: rotate(0deg);
   }
-  50% {
-    background-position: 100% 0, 0 0;
-  }
+
   100% {
-    background-position: 0% 0, 0 0;
+    transform: rotate(360deg);
+  }
+}
+
+/* Zoom in - zoom out effect */
+@keyframes zoomEffect {
+  0% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.02);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* Media query start */
+@media screen and (max-width: 991px) {
+  .ImageInner {
+    width: 290px;
+    height: 290px;
+  }
+  .maincontent{
+    font-size: clamp(30px, 8vw, 70px);
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .ImageWrapper {
+    margin-top: 30px;
+  }
+
+  .herocontent {
+    margin-top: 45px;
   }
 }

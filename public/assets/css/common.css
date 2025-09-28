@@ -19,20 +19,12 @@
 }
 
 .section-title p {
-    font-size: clamp(16px, 1.5vw, 20px);
+    font-size: clamp(18px, 2vw, 20px);
     font-weight: 400;
     color: var(--secondary-text-color);
     line-height: normal;
-}
-
-.section-title span {
-    font-size: clamp(16px, 1.5vw, 20px);
-    font-weight: 500;
-    color: transparent;
-    letter-spacing: 1.8px;
-    -webkit-text-stroke: 1px var(--primary-color);
-
-}
+    letter-spacing: normal;
+}   
 
 .section-title .cm-button {
     color: var(--secondary-text-color);
@@ -46,7 +38,9 @@
     padding: 10px 30px;
     border-radius: 4px;
     display: inline-block;
-    border: 2px solid var(--primary-color);
+    /* border: 2px solid var(--primary-color); */
+    border: 5px solid;
+    border-image: linear-gradient(90deg, #49aac7, #6991c700) 1;
     color: var(--secondary-text-color);
     font-weight: 500;
     font-size: clamp(16px, 1.5vw, 18px);

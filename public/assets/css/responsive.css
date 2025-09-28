@@ -103,6 +103,12 @@
         min-height: 65vh;
         max-height: 65vh;
     }
+
+    header .header-wrapper{
+        padding-top: 12px;
+        padding-bottom: 12px;
+
+    }
 }
 
 @media (max-width: 480px) {
@@ -147,4 +153,10 @@
     .btn {
         padding: 0.45rem 1.2rem;
     }
+
+    .header .header-wrapper {
+        padding-top: 12px;
+        padding-bottom: 12px;
+    }
+
 }
