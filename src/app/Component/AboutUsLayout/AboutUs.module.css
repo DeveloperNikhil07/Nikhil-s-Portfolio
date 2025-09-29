@@ -104,6 +104,7 @@
     .aboutUsContent p {
         margin-top: 6px;
         max-width: 100%;
+        text-align: center;
     }
 
     .sliderItems {
