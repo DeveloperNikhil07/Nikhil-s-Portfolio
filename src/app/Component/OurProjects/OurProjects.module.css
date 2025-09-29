@@ -13,11 +13,21 @@
     width: 100%;
 }
 
-.OurProjectsContent h1 {
+.OurProjectTitle h1 {
     font-size: clamp(40px, 10vw, 90px);
     font-weight: 800;
     color: #fff;
     line-height: 1.2;
+}
+
+.OurProjectsContent p {
+    font-size: clamp(14px, 1.5vw, 18px);
+    color: var(--secondary-text-color);
+    margin-top: 20px;
+    max-width: 650px;
+    line-height: 1.8;
+    margin: 10px 0;
+    letter-spacing: 0.5px;
 }
 
 /* Thumbnail css */
@@ -36,4 +46,12 @@
     .aboutUsLeftContent h1 {
         font-size: clamp(36px, 8vw, 60px);
     }
+}
+
+@media screen and (max-width: 575px) {
+    .OurProjectsMain {
+        min-height: calc(100vh - 160px);
+        max-height: calc(100vh - 160px);
+    }
+
 }

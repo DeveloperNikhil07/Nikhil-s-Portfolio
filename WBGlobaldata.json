@@ -40,6 +40,81 @@
     "mission": "To create websites that combine functionality, aesthetics, and performance.",
     "cta": "Let's collaborate and bring your ideas to life!"
   },
+  "ourProjects": {
+    "title": "Our Projects",
+    "subtitle": "Turning ideas into responsive and interactive web applications!",
+    "description": "Hey! 👋 I’m Nikhil Lodhi – I build modern, responsive websites using skills like HTML, CSS, JavaScript, PHP, React, Next.js, WordPress, and CSS frameworks. From pure HTML/CSS projects to dynamic React & Next.js apps, and even WordPress custom sites, each project is designed to be interactive, mobile-friendly, and user-focused. Take a look at my work below – every project shows what I can do with modern web technologies! 🚀",
+    "projectsSlider": [
+      {
+        "img": "https://images.pexels.com/photos/2837909/pexels-photo-2837909.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "icon": "faPersonWalking",
+        "title": "HTML & CSS Project",
+        "desc": "Clean and responsive website built using pure HTML & CSS."
+      },
+      {
+        "img": "https://images.pexels.com/photos/922978/pexels-photo-922978.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "icon": "faSnowflake",
+        "title": "Next.js Project",
+        "desc": "Modern and dynamic web app built using Next.js and CSS frameworks."
+      },
+      {
+        "img": "https://images.pexels.com/photos/3723034/pexels-photo-3723034.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "icon": "faTree",
+        "title": "React.js App",
+        "desc": "Interactive and responsive React.js application with modern UI."
+      },
+      {
+        "img": "https://images.pexels.com/photos/10983409/pexels-photo-10983409.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "icon": "faDroplet",
+        "title": "WordPress Custom Site",
+        "desc": "Custom WordPress site with responsive design and user-friendly experience."
+      }
+    ],
+    "thumbnailSlider": [
+      {
+        "img": "/assets/images/ProjectsThumnails/rivenox-thumbnail.svg",
+        "title": "Rivenox Website",
+        "desc": "Lorem ipsum dolor sit amet.",
+        "link": "https://rivenox.com/",
+        "icon": "/assets/images/TechnologyImg/wordpress.svg"
+      },
+      {
+        "img": "/assets/images/ProjectsThumnails/crmlogin.svg",
+        "title": "Travel CRM",
+        "desc": "Lorem ipsum dolor sit amet.",
+        "link": "https://crmnext.reservationcentre.us/",
+        "icon": "/assets/images/TechnologyImg/nextjs.svg"
+      },
+      {
+        "img": "/assets/images/ProjectsThumnails/jh.svg",
+        "title": "JourneyHoper Website",
+        "desc": "Lorem ipsum dolor sit amet.",
+        "link": "https://journeyhoper.com/",
+        "icon": "/assets/images/TechnologyImg/nextjs.svg"
+      },
+      {
+        "img": "/assets/images/ProjectsThumnails/Vishvash-delhi.svg",
+        "title": "Vishvash Delhi",
+        "desc": "Lorem ipsum dolor sit amet.",
+        "link": "https://vishvashdelhi.com/",
+        "icon": "/assets/images/TechnologyImg/wordpress.svg"
+      },
+      {
+        "img": "/assets/images/ProjectsThumnails/mibmuscat.svg",
+        "title": "MIB Muscat Website",
+        "desc": "Lorem ipsum dolor sit amet.",
+        "link": "https://mibmuscat.com/",
+        "icon": "/assets/images/TechnologyImg/wordpress.svg"
+      },
+      {
+        "img": "/assets/images/ProjectsThumnails/smklandscaping.svg",
+        "title": "SMK Landscaping Website",
+        "desc": "Lorem ipsum dolor sit amet.",
+        "link": "http://smklandscaping.com/",
+        "icon": "/assets/images/TechnologyImg/wordpress.svg"
+      }
+    ]
+  },
   "contact": {
     "email": "info@mywebsite.com",
     "phone": "+1 234 567 890",
