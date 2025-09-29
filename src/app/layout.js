@@ -9,6 +9,7 @@ import "../../public/assets/css/style.css";
 import "../../public/assets/css/responsive.css";
 import Header from "./Component/Header/Header";
 import { WebsiteContentProvider } from "./context/WbContent";
+import StarBackground from './Component/StarBackground/Background';
 
 // --- Red Hat Display Font Setup ---
 const redHat = Red_Hat_Display({
@@ -40,7 +41,7 @@ export default function RootLayout({ children }) {
         <WebsiteContentProvider>
           <Header />
           {children}
-          {/* <GetAosAnimation /> */}
+          <StarBackground />
         </WebsiteContentProvider>
       </body>
     </html>

@@ -1,7 +1,7 @@
 .OurProjectsMain {
     width: 100%;
-    min-height: calc(100vh - 120px);
-    max-height: calc(100vh - 120px);
+    min-height: calc(100vh - 115px);
+    max-height: calc(100vh - 115px);
     position: relative;
 }
 
@@ -14,62 +14,26 @@
 }
 
 .OurProjectsContent h1 {
-    font-size: clamp(32px, 5vw, 75px);
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    font-weight: 700;
-    display: inline-block;
-    position: relative;
-    background:
-        linear-gradient(120deg,
-            transparent 0%,
-            rgba(255, 255, 255, 0.5) 50%,
-            transparent 100%) no-repeat,
-        linear-gradient(270deg,
-            var(--primary-color),
-            var(--secondary-themecolor),
-            var(--primary-color));
-    background-size: 200% 100%, 200% 100%;
-    background-position: -100% 0, 0 0;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    color: transparent;
-    -webkit-text-stroke: 1px rgba(255, 255, 255, 0.15);
-    text-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
-    animation: shineText 3s ease-in-out infinite, gradientMove 6s linear infinite;
-}
-
-/* Shine animation inside text */
-@keyframes shineText {
-    0% {
-        background-position: -100% 0, 0 0;
-    }
-
-    60% {
-        background-position: 200% 0, 0 0;
-    }
-
-    100% {
-        background-position: 200% 0, 0 0;
-    }
-}
-
-/* Background gradient movement (optional) */
-@keyframes gradientMove {
-    0% {
-        background-position: 0% 0, 0 0;
-    }
-
-    50% {
-        background-position: 100% 0, 0 0;
-    }
-
-    100% {
-        background-position: 0% 0, 0 0;
-    }
+    font-size: clamp(40px, 10vw, 90px);
+    font-weight: 800;
+    color: #fff;
+    line-height: 1.2;
 }
 
 /* Thumbnail css */
-.OurProjectThumbnail{
-    
+.OurProjectThumbnail .ProjectCard {
+    background: rgba(10, 20, 50, 0.5);
+    border: 1px solid rgba(0, 170, 255, 0.3);
+    border-radius: 10px;
+    padding: 30px;
+    transition: all 0.3s;
+    backdrop-filter: blur(5px);
+}
+
+
+/* Media Query  */
+@media (max-width: 767px) {
+    .aboutUsLeftContent h1 {
+        font-size: clamp(36px, 8vw, 60px);
+    }
 }
