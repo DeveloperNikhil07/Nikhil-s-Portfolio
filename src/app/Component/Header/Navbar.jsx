@@ -3,7 +3,6 @@ import Link from 'next/link'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRightFromBracket, faBars } from "@fortawesome/free-solid-svg-icons";
 import { usePathname } from 'next/navigation';
-import SwitchDarkAndLightButton from '../DarkAndLightBtn/SwitchDarkAndLightButton';
 
 
 export default function Navbar({ websiteData }) {
@@ -20,7 +19,7 @@ export default function Navbar({ websiteData }) {
         <>
             <nav className={`navbar justify-content-end ${MenuOffcanvas === true ? 'show-menu' : ''}`}>
                 <div className='d-flex align-items-center'>
-                    {/* <SwitchDarkAndLightButton /> */}
+                    {/* Add Dark mode button here */}
                     <ul className='menu'>
                         <div className='offcanvas-overlay d-block d-lg-none' onClick={CloseOffcanvasHandle}></div>
                         <li className='close-btn d-block d-lg-none' onClick={CloseOffcanvasHandle}><FontAwesomeIcon icon={faArrowRightFromBracket} /></li>

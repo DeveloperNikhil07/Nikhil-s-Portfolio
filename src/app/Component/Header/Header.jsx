@@ -1,6 +1,5 @@
 "use client"
 import Link from 'next/link'
-import Image from 'next/image'
 import Navbar from './Navbar'
 const GetImagesByUrl = process.env.NEXT_PUBLIC_IMAGE_UR;
 import { useWebsiteContent } from '@/app/context/WbContent';

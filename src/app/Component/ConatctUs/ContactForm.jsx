@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faExclamationCircle } from '@fortawesome/free-solid-svg-icons'
 import ButtonLoading from '../Loader/ButtonLoading'
-import TopProgressBar from '../ProgressBar copy/TopProgressBar'
+import TopProgressBar from '../Progressbar/TopProgressBar'
 export default function ContactForm({ loading, errors, handleSubmit, handleChange, formData }) {
 
     // Calculate progress based on filled fields
