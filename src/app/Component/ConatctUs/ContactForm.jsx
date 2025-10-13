@@ -53,7 +53,7 @@ export default function ContactForm({ loading, errors, handleSubmit, handleChang
                     </div>
                 )}
                 <form autoComplete="off" onSubmit={handleSubmit}>
-                    <h3 className="title">Contact us</h3>
+                    <h3 className="title">Contact Me</h3>
 
                     <div className="input-container" style={{ position: "relative" }}>
                         <input
