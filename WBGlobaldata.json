@@ -10,12 +10,12 @@
         "icon": "faHome"
       },
       {
-        "title": "About",
-        "url": "/aboutus"
+        "title": "About Me",
+        "url": "/aboutme"
       },
       {
-        "title": "Our Projects",
-        "url": "/ourprojects"
+        "title": "My Projects",
+        "url": "/myprojects"
       },
       {
         "title": "Contact Me",

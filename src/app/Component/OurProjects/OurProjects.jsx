@@ -7,7 +7,7 @@ export default function OurProjects({ ViewNextLayout, ViewPreviousLayout }) {
                     <div className='row'>
                         <div className='col-12 text-center mb-3 mb-md-4 mb-lg-5'>
                             <div className={`position-relative ${style.OurProjectTitle}`}>
-                                <h1>Our Projects</h1>
+                                <h1>My Projects</h1>
                             </div>
                         </div>
                     </div>
