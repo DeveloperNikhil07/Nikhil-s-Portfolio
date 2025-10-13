@@ -3,7 +3,6 @@
 import React from 'react';
 import style from './homebanner.module.css';
 import { useWebsiteContent } from '@/app/context/WbContent';
-import ViewNextSectionButton from '../SectionCommonButton/ViewNextSectionButton';
 import WindowLoader from '../WindowLoader/WindowLoader';
 
 export default function HomeBanner({ ViewNextLayout }) {
@@ -65,12 +64,6 @@ export default function HomeBanner({ ViewNextLayout }) {
                             </div>
                         </div>
                     </div>
-
-                    <ViewNextSectionButton
-                        ViewNextLayout={ViewNextLayout}
-                        PageTitle={"HomeLayout"}
-                        ButtonText={"Start Slide"}
-                    />
                 </div>
             )}
         </section>

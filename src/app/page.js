@@ -1,10 +1,11 @@
-import React from 'react'
-import RenderAllPages from './Component/RenderAllPages'
+import React, { Suspense } from 'react'
+import WindowLoader from './Component/WindowLoader/WindowLoader'
+import HomeBanner from './Component/HomeBanner/HomeBanner'
 
 export default function page() {
   return (
-    <div>
-      <RenderAllPages/>
-    </div>
+    <Suspense fallback={<WindowLoader />}>
+      <HomeBanner />
+    </Suspense>
   )
 }

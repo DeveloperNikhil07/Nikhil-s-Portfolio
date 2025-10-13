@@ -1,19 +1,5 @@
-'use client'
-import React, { useEffect, useState } from 'react'
 import style from './OurProjects.module.css'
-import ViewNextSectionButton from '../SectionCommonButton/ViewNextSectionButton'
-import ViewPreviousSectionButton from '../SectionCommonButton/ViewPreviousSectionButton'
-import { usePathname } from 'next/navigation'
 export default function OurProjects({ ViewNextLayout, ViewPreviousLayout }) {
-    const GetPathName = usePathname();
-    const [hideBottomNavButtons, setHideBottomNavButtons] = useState(false);
-    useEffect(() => {
-        if (GetPathName === "/ourprojects") {
-            setHideBottomNavButtons(true);
-        } else {
-            setHideBottomNavButtons(false);
-        }
-    }, [GetPathName])
     return (
         <section className={style.OurProjectsMain}>
             <div className={style.OurProjectsBanner}>
@@ -39,11 +25,6 @@ export default function OurProjects({ ViewNextLayout, ViewPreviousLayout }) {
                     </div>
                 </div>
             </div>
-            {/* Next Module button */}
-            {hideBottomNavButtons ? null : <ViewNextSectionButton ButtonText={"Next Slide"} ViewNextLayout={ViewNextLayout} PageTitle={"ContactUs"} />}
-
-            {/* Previous Module button */}
-            {hideBottomNavButtons ? null : <ViewPreviousSectionButton ButtonText={"Previous Slide"} ViewPreviousLayout={ViewPreviousLayout} PageTitle={"AboutLayout"} />}
         </section>
     )
 }

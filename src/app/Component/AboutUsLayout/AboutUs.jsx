@@ -1,23 +1,9 @@
-'use client'
-import React, { useEffect } from 'react'
+import React from 'react'
 import style from './AboutUs.module.css'
-import ViewNextSectionButton from '../SectionCommonButton/ViewNextSectionButton'
-import ViewPreviousSectionButton from '../SectionCommonButton/ViewPreviousSectionButton'
 import SkillsIconList from './SkillsIconList'
 import LinearProgress from '../Progressbar/LinearProgress'  // ✅ correct import
-import { usePathname } from "next/navigation";
 
 export default function AboutUs({ ViewNextLayout, ViewPreviousLayout }) {
-    const GetPathName = usePathname();
-    const [hideBottomNavButtons, setHideBottomNavButtons] = React.useState(false);
-    useEffect(() => {
-        if (GetPathName === "/aboutus") {
-            setHideBottomNavButtons(true);
-        } else {
-            setHideBottomNavButtons(false);
-        }
-    }, [GetPathName])
-
     const skills = [
         { skill: "HTML", percentage: 90, gradient: ["#ff512f", "#ff5722"] },
         { skill: "CSS", percentage: 85, gradient: ["#1fa2ff", "#2196f3"] },
@@ -88,20 +74,6 @@ export default function AboutUs({ ViewNextLayout, ViewPreviousLayout }) {
                     </div>
                 </div>
             </div>
-            {hideBottomNavButtons ? null :
-                <ViewNextSectionButton
-                    ButtonText={"Next Slide"}
-                    ViewNextLayout={ViewNextLayout}
-                    PageTitle={"ProjectLayout"}
-                />
-            }
-            {hideBottomNavButtons ? null :
-                <ViewPreviousSectionButton
-                    ButtonText={"Previous Slide"}
-                    ViewPreviousLayout={ViewPreviousLayout}
-                    PageTitle={"HomeLayout"}
-                />
-            }
         </section>
     )
 }
