@@ -1,10 +1,10 @@
 import React from 'react'
-import './loader.css'
+import style from './loader.module.css' 
 
 export default function ButtonLoading() {
     return (
         <div>
-            <div id="button-loading"></div>
+            <div id={style?.button_loading}></div>
         </div>
     )
 }
