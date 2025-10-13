@@ -212,8 +212,7 @@ ul {
 .contact-us-wrapper {
     position: relative;
     width: 100%;
-    min-height: calc(100vh - 90px);
-    background-color: #fafafa;
+    min-height: calc(100vh - 120px);
     overflow: hidden;
     display: flex;
     align-items: center;
@@ -223,10 +222,11 @@ ul {
 .form {
     width: 100%;
     max-width: 1140px;
-    background-color: #fff;
+    background-color: rgba(256,256,256 , 0.05);
     border-radius: 10px;
-    box-shadow: 0 0 20px 1px #e5e4f0;
+    box-shadow: 0 0 20px 1px rgba(256,256,256 , 0.05);
     z-index: 1000;
+    border: 2px solid rgba(256,256,256 , 0.05);
     overflow: hidden;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -384,37 +384,40 @@ textarea.input {
 .contact-info {
     padding: 2.3rem 2.2rem;
     position: relative;
-    background-color: #fff;
 }
 
 .contact-info .title {
-    color: var(--theme-color);
+    color: var(--secondary-text-color);
     font-weight: 500;
     font-size: clamp(22px, 2.5vw, 28px);
 }
 
+.contact-info .title::first-letter{
+    font-size:clamp(28px, 4.5vw, 34px);
+}
+
 .text {
-    color: #333;
+    color:var(--secondary-text-color);
     margin: 1.5rem 0 2rem 0;
 }
 
 .information {
     display: flex;
-    color: #555;
+    color: var(--secondary-text-color);
     margin: 0.7rem 0;
     align-items: center;
     font-size: 0.95rem;
 }
 
 .information p {
-    color: var(--theme-color);
+    color: var(--white-color);
     font-weight: 500;
 
 }
 
 .information svg {
     margin-right: 10px;
-    color: var(--theme-color);
+    color:#28d2ff;
 }
 
 .icon {
@@ -427,7 +430,7 @@ textarea.input {
 }
 
 .social-media p {
-    color: #333;
+    color:var(--secondary-text-color);
 }
 
 .social-icons {
@@ -461,28 +464,6 @@ textarea.input {
     bottom: -150px;
     right: 50px;
     opacity: 0.3;
-}
-
-.big-circle {
-    position: absolute;
-    width: 500px;
-    height: 500px;
-    border-radius: 50%;
-    background: linear-gradient(to right, #4a00e0, #8e2de2);
-    bottom: 65%;
-    right: 52%;
-    transform: translate(-40%, 38%);
-}
-
-.big-circle:after {
-    content: "";
-    position: absolute;
-    width: 360px;
-    height: 360px;
-    background-color: #fafafa;
-    border-radius: 50%;
-    top: calc(50% - 180px);
-    left: calc(50% - 180px);
 }
 
 .square {

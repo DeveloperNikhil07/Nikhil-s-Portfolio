@@ -1,9 +1,19 @@
-import React from 'react'
+'use client'
+import React, { useEffect, useState } from 'react'
 import style from './OurProjects.module.css'
 import ViewNextSectionButton from '../SectionCommonButton/ViewNextSectionButton'
 import ViewPreviousSectionButton from '../SectionCommonButton/ViewPreviousSectionButton'
-import ThumbnailSlider from './ThumbnailSlider'
+import { usePathname } from 'next/navigation'
 export default function OurProjects({ ViewNextLayout, ViewPreviousLayout }) {
+    const GetPathName = usePathname();
+    const [hideBottomNavButtons, setHideBottomNavButtons] = useState(false);
+    useEffect(() => {
+        if (GetPathName === "/ourprojects") {
+            setHideBottomNavButtons(true);
+        } else {
+            setHideBottomNavButtons(false);
+        }
+    }, [GetPathName])
     return (
         <section className={style.OurProjectsMain}>
             <div className={style.OurProjectsBanner}>
@@ -18,7 +28,6 @@ export default function OurProjects({ ViewNextLayout, ViewPreviousLayout }) {
                     <div className='row align-items-center'>
                         <div className='col-12 col-md-7'>
                             <div className={`${style.OurProjectThumbnail}`}>
-                                <ThumbnailSlider />
                             </div>
                         </div>
                         <div className='col-12 col-md-5'>
@@ -31,10 +40,10 @@ export default function OurProjects({ ViewNextLayout, ViewPreviousLayout }) {
                 </div>
             </div>
             {/* Next Module button */}
-            <ViewNextSectionButton ButtonText={"Next Slide"} ViewNextLayout={ViewNextLayout} PageTitle={"ContactUs"} />
+            {hideBottomNavButtons ? null : <ViewNextSectionButton ButtonText={"Next Slide"} ViewNextLayout={ViewNextLayout} PageTitle={"ContactUs"} />}
 
             {/* Previous Module button */}
-            <ViewPreviousSectionButton ButtonText={"Previous Slide"} ViewPreviousLayout={ViewPreviousLayout} PageTitle={"AboutLayout"} />
+            {hideBottomNavButtons ? null : <ViewPreviousSectionButton ButtonText={"Previous Slide"} ViewPreviousLayout={ViewPreviousLayout} PageTitle={"AboutLayout"} />}
         </section>
     )
 }

@@ -1,11 +1,23 @@
-import React from 'react'
+'use client'
+import React, { useEffect } from 'react'
 import style from './AboutUs.module.css'
 import ViewNextSectionButton from '../SectionCommonButton/ViewNextSectionButton'
 import ViewPreviousSectionButton from '../SectionCommonButton/ViewPreviousSectionButton'
 import SkillsIconList from './SkillsIconList'
 import LinearProgress from '../Progressbar/LinearProgress'  // ✅ correct import
+import { usePathname } from "next/navigation";
 
 export default function AboutUs({ ViewNextLayout, ViewPreviousLayout }) {
+    const GetPathName = usePathname();
+    const [hideBottomNavButtons, setHideBottomNavButtons] = React.useState(false);
+    useEffect(() => {
+        if (GetPathName === "/aboutus") {
+            setHideBottomNavButtons(true);
+        } else {
+            setHideBottomNavButtons(false);
+        }
+    }, [GetPathName])
+
     const skills = [
         { skill: "HTML", percentage: 90, gradient: ["#ff512f", "#ff5722"] },
         { skill: "CSS", percentage: 85, gradient: ["#1fa2ff", "#2196f3"] },
@@ -46,20 +58,20 @@ export default function AboutUs({ ViewNextLayout, ViewPreviousLayout }) {
                         <div className='col-12 col-md-7 mt-2'>
                             <div className={style.aboutUsContent}>
                                 <p>
-                                    Hi there! I'm <span>Nikhil Lodhi</span>, a <span>Frontend Developer</span> specializing in 
+                                    Hi there! I'm <span>Nikhil Lodhi</span>, a <span>Frontend Developer</span> specializing in
                                     <span> React.js</span>, <span>Next.js</span>, and modern <span>CSS</span> frameworks.
                                 </p>
                                 <p>
-                                    In my previous company, I worked on <span>WordPress</span> theme customization and 
+                                    In my previous company, I worked on <span>WordPress</span> theme customization and
                                     developed custom features using <span>PHP (core)</span>.
                                 </p>
                                 <p>
-                                    Currently, I’m working as a <span>Frontend Developer</span> where I focus on building 
-                                    <span> CRM</span> applications using <span>Next.js</span>, <span>React.js</span>, and 
+                                    Currently, I’m working as a <span>Frontend Developer</span> where I focus on building
+                                    <span> CRM</span> applications using <span>Next.js</span>, <span>React.js</span>, and
                                     <span> CSS</span> frameworks to deliver fast, scalable, and user-friendly solutions.
                                 </p>
                                 <p>
-                                    I enjoy crafting clean <span>UI</span>, writing efficient code, and continuously 
+                                    I enjoy crafting clean <span>UI</span>, writing efficient code, and continuously
                                     improving my skills with modern web technologies.
                                 </p>
                             </div>
@@ -76,20 +88,20 @@ export default function AboutUs({ ViewNextLayout, ViewPreviousLayout }) {
                     </div>
                 </div>
             </div>
-
-            {/* Next Module button */}
-            <ViewNextSectionButton 
-                ButtonText={"Next Slide"} 
-                ViewNextLayout={ViewNextLayout} 
-                PageTitle={"ProjectLayout"} 
-            />
-
-            {/* Previous Module button */}
-            <ViewPreviousSectionButton 
-                ButtonText={"Previous Slide"} 
-                ViewPreviousLayout={ViewPreviousLayout} 
-                PageTitle={"HomeLayout"} 
-            />
+            {hideBottomNavButtons ? null :
+                <ViewNextSectionButton
+                    ButtonText={"Next Slide"}
+                    ViewNextLayout={ViewNextLayout}
+                    PageTitle={"ProjectLayout"}
+                />
+            }
+            {hideBottomNavButtons ? null :
+                <ViewPreviousSectionButton
+                    ButtonText={"Previous Slide"}
+                    ViewPreviousLayout={ViewPreviousLayout}
+                    PageTitle={"HomeLayout"}
+                />
+            }
         </section>
     )
 }
