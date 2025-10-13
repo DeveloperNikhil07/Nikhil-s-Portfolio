@@ -20,7 +20,7 @@ export default function AboutUs({ ViewNextLayout, ViewPreviousLayout }) {
                     <div className='row align-items-center'>
                         <div className='col-12'>
                             <div className={`${style.aboutUsLeftContent} section-title text-center mb-2 mb-md-3`}>
-                                <h1>About Us</h1>
+                                <h1>About Me</h1>
                             </div>
                         </div>
                     </div>
