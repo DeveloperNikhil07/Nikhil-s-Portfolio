@@ -20,7 +20,7 @@ export default function AboutUs() {
                     <div className='row align-items-center'>
                         <div className='col-12'>
                             <div className={`${style.aboutUsLeftContent} section-title text-center mb-2 mb-md-3`}>
-                                <h1>About Me</h1>
+                                <h1>About <span>Me</span></h1>
                             </div>
                         </div>
                     </div>

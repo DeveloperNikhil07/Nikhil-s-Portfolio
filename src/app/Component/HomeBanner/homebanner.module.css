@@ -57,6 +57,11 @@
   top: 50%;
   transform: translateY(-50%);
 }
+.maincontent span {
+  background: linear-gradient(90deg, #b26ff2, #8b5cf6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
 
 .Hometextwrapper .greetIcon {
   width: 28px;

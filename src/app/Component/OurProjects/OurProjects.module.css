@@ -1,16 +1,6 @@
 .OurProjectsMain {
     width: 100%;
-    min-height: calc(100vh - 115px);
-    max-height: calc(100vh - 115px);
     position: relative;
-}
-
-.OurProjectsBanner {
-    position: absolute;
-    left: 0;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 100%;
 }
 
 .OurProjectTitle h1 {
@@ -18,6 +8,11 @@
     font-weight: 800;
     color: #fff;
     line-height: 1.2;
+}
+.OurProjectTitle span {
+  background: linear-gradient(90deg, #b26ff2, #8b5cf6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .OurProjectsContent p {
@@ -46,12 +41,4 @@
     .aboutUsLeftContent h1 {
         font-size: clamp(36px, 8vw, 60px);
     }
-}
-
-@media screen and (max-width: 575px) {
-    .OurProjectsMain {
-        min-height: calc(100vh - 160px);
-        max-height: calc(100vh - 160px);
-    }
-
 }

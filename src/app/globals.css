@@ -1,6 +1,7 @@
 /* ✅ Default theme (auto-detects light mode) */
 :root {
-  color-scheme: light dark; /* browser ko batata hai ki dono support hain */
+  color-scheme: light dark;
+  /* browser ko batata hai ki dono support hain */
   --background: #ffffff;
   --foreground: #171717;
   --accent: #0078ff;
@@ -9,7 +10,7 @@
 /* ✅ Dark mode (auto-detects if user uses dark theme) */
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
+    --background: radial-gradient(circle at top left, #12002f, #090b28);
     --foreground: #ededed;
     --accent: #4da3ff;
   }
@@ -24,11 +25,12 @@ body {
 
 body {
   color: var(--foreground);
-  background-color: var(--background);
+  background: var(--background);
   font-family: 'Red Hat Display', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  transition: background-color 0.3s ease, color 0.3s ease; /* smooth transition */
+  transition: background-color 0.3s ease, color 0.3s ease;
+  /* smooth transition */
 }
 
 * {

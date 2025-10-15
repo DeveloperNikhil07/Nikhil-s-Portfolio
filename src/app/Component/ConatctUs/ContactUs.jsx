@@ -1,129 +1,241 @@
-'use client'
-import React, { Suspense, useState } from 'react'
-import WindowLoader from '../../Component/WindowLoader/WindowLoader'
-import ContactInfo from '../../Component/ConatctUs/ContactInfo'
-import ContactForm from '../../Component/ConatctUs/ContactForm'
-import { SendThankYouMail } from '../../api/WBGlobalDataApi/ContactUsApi/SendThankYouMail'
+"use client";
+import React, { useState } from "react";
+import Image from "next/image";
+import WindowLoader from "../../Component/WindowLoader/WindowLoader";
+import ContactInfo from "../../Component/ConatctUs/ContactInfo";
+import { SendThankYouMail } from "../../api/WBGlobalDataApi/ContactUsApi/SendThankYouMail";
+import styles from "./Contactus.module.css";
 
-export default function ConatctUs() {
+// Import Font Awesome icon
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCircleExclamation } from "@fortawesome/free-solid-svg-icons";
+
+export default function ContactUs() {
     const [formData, setFormData] = useState({
-        name: "",
+        firstName: "",
+        lastName: "",
         email: "",
         phone: "",
         message: "",
     });
 
-    const [errors, setErrors] = useState({})
+    const [errors, setErrors] = useState({});
+    const [loading, setLoading] = useState(false);
 
+    // Handle Input Change + Live Validation
     const handleChange = (e) => {
-        const { name, value } = e.target
-        let newValue = value
+        const { name, value } = e.target;
+        let newValue = name === "phone" ? value.replace(/\D/g, "") : value;
 
-        if (name === "phone") {
-            newValue = value.replace(/\D/g, "") // Allow only digits
-        }
+        setFormData((prev) => ({ ...prev, [name]: newValue }));
 
-        setFormData((prev) => ({ ...prev, [name]: newValue }))
-
+        // Inline validation
         setErrors((prev) => {
-            const newErrors = { ...prev }
-
+            const newErrors = { ...prev };
             switch (name) {
-                case "name":
-                    if (!newValue.trim()) newErrors.name = "Name is required"
-                    else delete newErrors.name
-                    break
-
+                case "firstName":
+                case "lastName":
+                    if (!newValue.trim()) newErrors[name] = "Required";
+                    else delete newErrors[name];
+                    break;
                 case "email":
-                    if (!newValue.trim()) newErrors.email = "Email is required"
+                    if (!newValue.trim()) newErrors.email = "Required";
                     else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(newValue))
-                        newErrors.email = "Email is invalid"
-                    else delete newErrors.email
-                    break
-
+                        newErrors.email = "Invalid";
+                    else delete newErrors.email;
+                    break;
                 case "phone":
-                    if (!newValue.trim()) newErrors.phone = "Phone is required"
+                    if (!newValue.trim()) newErrors.phone = "Required";
                     else if (!/^\d{10}$/.test(newValue))
-                        newErrors.phone = "Phone must be exactly 10 digits"
-                    else delete newErrors.phone
-                    break
-
+                        newErrors.phone = "10 digits only";
+                    else delete newErrors.phone;
+                    break;
                 default:
-                    break
+                    break;
             }
+            return newErrors;
+        });
+    };
 
-            return newErrors
-        })
-    }
-
-    // Validate all fields on submit
+    // Validate before submit
     const validate = () => {
-        const newErrors = {}
+        const newErrors = {};
+        if (!formData.firstName.trim()) newErrors.firstName = "Required";
+        if (!formData.lastName.trim()) newErrors.lastName = "Required";
+        if (!formData.email.trim()) newErrors.email = "Required";
+        else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email))
+            newErrors.email = "Invalid";
+        if (!formData.phone.trim()) newErrors.phone = "Required";
+        else if (!/^\d{10}$/.test(formData.phone))
+            newErrors.phone = "10 digits only";
 
-        if (!formData.name.trim()) newErrors.name = "Name is required"
+        setErrors(newErrors);
+        return Object.keys(newErrors).length === 0;
+    };
 
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
-        if (!formData.email.trim()) newErrors.email = "Email is required"
-        else if (!emailRegex.test(formData.email))
-            newErrors.email = "Email is invalid"
-
-        const phoneRegex = /^\d{10}$/
-        if (!formData.phone.trim()) newErrors.phone = "Phone is required"
-        else if (!phoneRegex.test(formData.phone))
-            newErrors.phone = "Phone must be exactly 10 digits"
-
-        setErrors(newErrors)
-        return Object.keys(newErrors).length === 0
-    }
-
-    // Handle form submit
-    const [loading, setLoading] = useState(false)
+    // Submit handler
     const handleSubmit = async (e) => {
-        e.preventDefault()
-        if (!validate()) return
-        setLoading(true)
+        e.preventDefault();
+        if (!validate()) return;
+        setLoading(true);
+
         try {
-            const res = await SendThankYouMail(formData)
-            if (res.success) {
-                setErrors({})
+            const res = await SendThankYouMail(formData);
+            if (res?.success) {
+                alert("Message sent successfully!");
+                setFormData({
+                    firstName: "",
+                    lastName: "",
+                    email: "",
+                    phone: "",
+                    message: "",
+                });
+                setErrors({});
             } else {
+                alert("Failed to send message!");
             }
         } catch (err) {
-            console.log(err)
+            console.error(err);
+            alert("Something went wrong!");
         } finally {
-            setLoading(false)
-            setFormData({
-                name: "",
-                email: "",
-                phone: "",
-                message: "",
-            })
+            setLoading(false);
         }
-    }
-    return (
-        <section className="contact-us-wrapper">
-            <div className="container">
-                <div className="row">
-                    <div className="col-12">
-                        <span className="big-circle"></span>
-                        <div className="form mx-auto">
-                            {/* Left Info Column */}
-                            <Suspense fallback={<WindowLoader />}>
-                                <ContactInfo />
+    };
 
-                                {/* Right Form Column */}
-                                <ContactForm
-                                    loading={loading}
-                                    formData={formData}
-                                    errors={errors}
-                                    handleChange={handleChange}
-                                    handleSubmit={handleSubmit}
-                                />
-                            </Suspense>
+    return (
+        <section className={styles.contactSection}>
+            {loading && <WindowLoader />}
+
+            <div className="container">
+                <div className="text-center mb-5">
+                    <h2 className={styles.title}>
+                        Get in <span>touch</span>
+                    </h2>
+                    <p className={styles.subtitle}>
+                        Reach out, and let's create a universe of possibilities together!
+                    </p>
+                </div>
+
+                <div className={`row ${styles.contactBox}`}>
+                    {/* Left Side Form */}
+                    <div className="col-md-6 mb-4 mb-md-0">
+                        <div className={styles.formBox}>
+                            <h3>Let’s connect constellations</h3>
+                            <p>
+                                Let’s align our constellations! Reach out and let the magic of
+                                collaboration illuminate our skies.
+                            </p>
+
+                            <form onSubmit={handleSubmit}>
+                                <div className="row">
+
+                                    <div className="col-md-6 mb-3 position-relative">
+                                        <input
+                                            type="text"
+                                            name="firstName"
+                                            placeholder="First Name"
+                                            value={formData.firstName}
+                                            onChange={handleChange}
+                                            className={`${styles.inputField} ${errors.firstName ? styles.inputError : ""
+                                                }`}
+                                        />
+                                        {errors.firstName && (
+                                            <FontAwesomeIcon
+                                                icon={faCircleExclamation}
+                                                className={styles.errorIcon}
+                                            />
+                                        )}
+                                    </div>
+                                    <div className="col-md-6 mb-3 position-relative">
+                                        <input
+                                            type="text"
+                                            name="lastName"
+                                            placeholder="Last Name"
+                                            value={formData.lastName}
+                                            onChange={handleChange}
+                                            className={`${styles.inputField} ${errors.lastName ? styles.inputError : ""
+                                                }`}
+                                        />
+                                        {errors.lastName && (
+                                            <FontAwesomeIcon
+                                                icon={faCircleExclamation}
+                                                className={styles.errorIcon}
+                                            />
+                                        )}
+                                    </div>
+                                </div>
+
+                                <div className="position-relative mb-3">
+                                    <input
+                                        type="email"
+                                        name="email"
+                                        placeholder="Email"
+                                        value={formData.email}
+                                        onChange={handleChange}
+                                        className={`${styles.inputField} ${errors.email ? styles.inputError : ""
+                                            }`}
+                                    />
+                                    {errors.email && (
+                                        <FontAwesomeIcon
+                                            icon={faCircleExclamation}
+                                            className={styles.errorIcon}
+                                        />
+                                    )}
+                                </div>
+
+                                <div className="position-relative mb-3">
+                                    <input
+                                        type="text"
+                                        name="phone"
+                                        placeholder="Phone Number"
+                                        value={formData.phone}
+                                        onChange={handleChange}
+                                        className={`${styles.inputField} ${errors.phone ? styles.inputError : ""
+                                            }`}
+                                    />
+                                    {errors.phone && (
+                                        <FontAwesomeIcon
+                                            icon={faCircleExclamation}
+                                            className={styles.errorIcon}
+                                        />
+                                    )}
+                                </div>
+
+                                <div className="mb-3 position-relative">
+                                    <textarea
+                                        name="message"
+                                        placeholder="Message"
+                                        rows="4"
+                                        value={formData.message}
+                                        onChange={handleChange}
+                                        className={`${styles.inputField}`}
+                                    ></textarea>
+                                </div>
+
+                                <button type="submit" className={styles.submitBtn}>
+                                    Send it to the moon 🚀
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+
+                    {/* Right Side Image */}
+                    <div className="col-md-6 d-flex align-items-center justify-content-center">
+                        <div className={styles.imageBox}>
+                            <Image
+                                src="/assets/images/contact-us.jpg"
+                                alt="Astronaut"
+                                width={400}
+                                height={400}
+                                className={styles.astronaut}
+                            />
+                            {/* Add social icons */}
                         </div>
                     </div>
                 </div>
             </div>
+
+            {/* <ContactInfo /> */}
         </section>
-    )
+    );
 }
