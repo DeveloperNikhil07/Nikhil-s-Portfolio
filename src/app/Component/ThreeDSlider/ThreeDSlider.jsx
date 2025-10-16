@@ -7,26 +7,63 @@ import { faLeftLong, faRightLong } from '@fortawesome/free-solid-svg-icons'
 
 const slides = [
   {
-    name: 'Nikhil Lodhi',
-    role: 'Gloves Collector',
-    desc: 'Nihil eum omnis et quis nihil.',
+    name: 'Next.js Projects',
+    role: 'Dynamic CRM & Admin Panels',
+    desc: 'Created custom CRM and admin panel solutions using Next.js, Tailwind CSS, and MongoDB for efficient data management and user-friendly interfaces.',
+    image: '/assets/images/ProjectsThumnails/crmlogin.svg',
+    skillsImage: [
+      { skillsImage: '/assets/images/TechnologyImg/nextjs.svg', alt: 'Next.js' },
+      { skillsImage: '/assets/images/TechnologyImg/tailwind.svg', alt: 'Tailwind CSS' },
+      { skillsImage: '/assets/images/TechnologyImg/html.svg', alt: 'HTML' },
+      { skillsImage: '/assets/images/TechnologyImg/css.svg', alt: 'CSS' },
+      { skillsImage: '/assets/images/TechnologyImg/bootstrap.svg', alt: 'Bootstrap' },
+      { skillsImage: '/assets/images/TechnologyImg/wordpress.svg', alt: 'Wordpress' },
+    ],
   },
   {
-    name: 'Harsh Sharama',
-    role: 'Watch Designer',
-    desc: 'Doloribus magni unde autem sint.',
+    name: 'Next.js Projects',
+    role: 'Full-Stack Web Applications',
+    desc: 'Developed high-performance web apps using Next.js with App Router, API integration, and server-side rendering for lightning-fast experiences and improved SEO.',
+    image: '/assets/images/ProjectsThumnails/nextjs-project.jpg',
+    skillsImage: [
+      { skillsImage: '/assets/images/TechnologyImg/nextjs.svg', alt: 'Next.js' },
+      { skillsImage: '/assets/images/TechnologyImg/tailwind.svg', alt: 'Tailwind CSS' },
+      { skillsImage: '/assets/images/TechnologyImg/html.svg', alt: 'HTML' },
+      { skillsImage: '/assets/images/TechnologyImg/css.svg', alt: 'CSS' },
+      { skillsImage: '/assets/images/TechnologyImg/bootstrap.svg', alt: 'Bootstrap' },
+      { skillsImage: '/assets/images/TechnologyImg/wordpress.svg', alt: 'Wordpress' },
+    ],
   },
   {
-    name: 'Shubham Singh',
-    role: 'Art Enthusiast',
-    desc: 'Perferendis voluptates accusamus eos.',
+    name: 'React.js Projects',
+    role: 'Interactive UI Development',
+    desc: 'Built dynamic single-page applications (SPAs) with smooth animations, reusable components, and real-time features powered by Socket.IO and REST APIs.',
+    image: '/assets/images/ProjectsThumnails/reactjs-project.jpg',
+    skillsImage: [
+      { skillsImage: '/assets/images/TechnologyImg/nextjs.svg', alt: 'Next.js' },
+      { skillsImage: '/assets/images/TechnologyImg/tailwind.svg', alt: 'Tailwind CSS' },
+      { skillsImage: '/assets/images/TechnologyImg/html.svg', alt: 'HTML' },
+      { skillsImage: '/assets/images/TechnologyImg/css.svg', alt: 'CSS' },
+      { skillsImage: '/assets/images/TechnologyImg/bootstrap.svg', alt: 'Bootstrap' },
+      { skillsImage: '/assets/images/TechnologyImg/wordpress.svg', alt: 'Wordpress' },
+    ],
   },
   {
-    name: 'Ashmit Sharama',
-    role: 'Art Enthusiast',
-    desc: 'Perferendis voluptates accusamus eos.',
+    name: 'Custom PHP Projects',
+    role: 'Tailored Web Solutions',
+    desc: 'Developed fully customized PHP applications including business websites, booking systems, and admin dashboards with secure backend logic and MySQL databases.',
+    image: '/assets/images/ProjectsThumnails/php-project.jpg',
+    skillsImage: [
+      { skillsImage: '/assets/images/TechnologyImg/nextjs.svg', alt: 'Next.js' },
+      { skillsImage: '/assets/images/TechnologyImg/tailwind.svg', alt: 'Tailwind CSS' },
+      { skillsImage: '/assets/images/TechnologyImg/html.svg', alt: 'HTML' },
+      { skillsImage: '/assets/images/TechnologyImg/css.svg', alt: 'CSS' },
+      { skillsImage: '/assets/images/TechnologyImg/bootstrap.svg', alt: 'Bootstrap' },
+      { skillsImage: '/assets/images/TechnologyImg/wordpress.svg', alt: 'Wordpress' },
+    ],
   },
 ]
+
 
 const ThreeDSlider = () => {
   const [activeIndex, setActiveIndex] = useState(0)

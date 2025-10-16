@@ -1,7 +1,8 @@
+/* === SLIDER CONTAINER === */
 .sliderContainer {
   position: relative;
   width: 100%;
-  height: 420px;
+  height: 450px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -23,13 +24,9 @@
   transform-style: preserve-3d;
   transition:
     transform 0.6s ease,
-    /* smooth movement */
-    z-index 0.6s ease,
-    /* optional: smoothly change z-index */
     opacity 0.6s ease;
   transform-origin: center center;
 }
-
 
 /* === ARROWS === */
 .arrow {
@@ -64,31 +61,57 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  perspective: 1000px;
+  transition: transform 0.3s ease;
 }
 
-.bgCard {
+.cardContainer:hover {
+  transform: translateY(-5px) scale(1.02);
+}
+
+/* Project Background Image */
+.projectImage,
+.cardContainer > img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 18px;
   position: absolute;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 70%;
+  z-index: 1;
+  filter: brightness(0.8);
+}
+
+/* Gradient Background Layer */
+.bgCard {
+  position: absolute;
+  inset: 0;
   border-radius: 18px;
   background: linear-gradient(135deg, #c2a0ff, #9ec9ff);
   box-shadow: 0 4px 18px rgba(0, 0, 0, 0.15);
-  z-index: 1;
+  z-index: 0;
 }
 
+/* Content Card Overlay */
 .contentCard {
   position: absolute;
-  bottom: 0;
+  bottom: -20px;
   width: 90%;
   background: #fff;
   border-radius: 20px;
   padding: clamp(12px, 2vw, 20px);
   box-shadow: 0 6px 25px rgba(0, 0, 0, 0.1);
   z-index: 2;
+  text-align: center;
+  transition: transform 0.3s ease;
 }
 
+.cardContainer:hover .contentCard {
+  transform: translateY(-5px);
+}
+
+/* Heart Icon */
 .iconContainer {
   position: absolute;
   top: clamp(8px, 2vw, 12px);
@@ -105,11 +128,11 @@
   color: #ff4d6d;
 }
 
+/* Text */
 .name {
   font-size: clamp(1.1rem, 2.5vw, 1.6rem);
   font-weight: 700;
   color: #000;
-  margin-top: clamp(35%, 20vw, 40%);
   margin-bottom: 6px;
 }
 
@@ -125,9 +148,61 @@
   line-height: 1.4;
 }
 
-/* mobile responsive */
-@media screen and (max-width:767px) {
+/* === SKILL ICONS === */
+.skillsList {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: clamp(6px, 1.5vw, 10px);
+  margin-top: 12px;
+  padding: 0;
+  list-style: none;
+}
+
+.skillItem {
+  height: 32px;
+  width: 32px;
+  border-radius: 6px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  background: #fff;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.skillItem:hover {
+  transform: scale(1.1);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+}
+
+.skillIcon {
+  height: 100%;
+  width: 100%;
+  object-fit: contain;
+  padding: 4px;
+}
+
+/* === RESPONSIVE === */
+@media screen and (max-width: 767px) {
   .sliderContainer {
     height: 350px;
+  }
+
+  .contentCard {
+    bottom: -10px;
+    width: 95%;
+    padding: 12px;
+  }
+
+  .name {
+    font-size: 1rem;
+  }
+
+  .desc {
+    font-size: 0.85rem;
+  }
+
+  .skillItem {
+    height: 28px;
+    width: 28px;
   }
 }

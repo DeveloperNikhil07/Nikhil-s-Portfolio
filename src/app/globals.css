@@ -25,7 +25,7 @@ body {
 
 body {
   color: var(--foreground);
-  background: var(--background);
+  background: radial-gradient(circle at top left, #12002f, #090b28);
   font-family: 'Red Hat Display', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;

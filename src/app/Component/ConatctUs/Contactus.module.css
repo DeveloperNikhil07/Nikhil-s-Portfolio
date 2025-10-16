@@ -1,5 +1,6 @@
 .contactSection {
   color: #fff;
+  padding-top: 20px;
 }
 
 .title {
@@ -127,7 +128,7 @@ textarea+.errorIcon {
 /* Responsive */
 @media (max-width: 768px) {
   .contactBox {
-    padding: 25px;
+    padding:30px 0px;
   }
 
   .title {

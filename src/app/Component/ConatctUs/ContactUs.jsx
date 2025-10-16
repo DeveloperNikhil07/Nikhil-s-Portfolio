@@ -213,14 +213,14 @@ export default function ContactUs() {
                                 </div>
 
                                 <button type="submit" className={styles.submitBtn}>
-                                    Send it to the moon 🚀
+                                    Submit
                                 </button>
                             </form>
                         </div>
                     </div>
 
                     {/* Right Side Image */}
-                    <div className="col-md-6 d-flex align-items-center justify-content-center">
+                    <div className="col-md-6 d-none d-md-flex align-items-center justify-content-center">
                         <div className={styles.imageBox}>
                             <Image
                                 src="/assets/images/contact-us.jpg"
